@@ -1,0 +1,26 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: $bg-black;
+  color: $font-white;
+  border-radius: $border-primary;
+  padding: 0.8rem 1.2rem;
+}
+
+.btn-transparent {
+  background-color: transparent;
+}
+
+.btn-circle {
+  width: 2rem;
+  height: 2rem;
+  padding: 1.5rem;
+  color: $font-white;
+  border-radius: 50%;
+}

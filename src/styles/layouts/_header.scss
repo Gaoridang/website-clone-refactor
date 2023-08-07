@@ -1,0 +1,39 @@
+header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  .header__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+
+    .header__logo {
+      width: 300px;
+      height: 200px;
+      background-image: url("/src/assets/images/logo-main.svg");
+    }
+
+    .header__nav {
+      display: flex;
+      flex-direction: column;
+
+      .header__nav-container {
+        display: flex;
+
+        .header__nav-text {
+          margin-right: 1rem;
+        }
+
+        .header__nav-icon {
+          background-color: $bg-black;
+        }
+
+        .header__nav-icon:not(:last-child) {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
