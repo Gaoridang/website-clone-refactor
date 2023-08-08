@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 module.exports = {
@@ -27,40 +28,22 @@ module.exports = {
     rules: [
       // 이미지 로더
       {
-        test: /\.(jpe?g|png|gif)$/i,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8192,
-              name: "assets/images/[name].[hash:8].[ext]",
-            },
-          },
-        ],
-      },
-      // SVG 로더
-      {
-        test: /\.svg$/i,
-        use: ["@svgr/webpack"],
+        test: /\.(png|jpe?g|gif|webp|svg)$/i,
+        type: "asset/resource",
       },
       // 웹폰트 로더
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "src/fonts/[name].[hash:8].[ext]",
-              publicPath: "/",
-            },
-          },
-        ],
+        type: "asset/resource",
+        generator: {
+          filename: "src/fonts/[name].[hash:8].[ext]",
+        },
       },
       // SASS 로더
       {
         test: /\.s[ac]ss$/i,
         use: [
-          "style-loader",
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
@@ -78,9 +61,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: "index.html",
-      template: "src/index.html",
+    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+      chunkFilename: "[id].[contenthash].css",
     }),
   ],
 };

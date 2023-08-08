@@ -6,7 +6,11 @@ section.home {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 2rem 4rem;
+    background-image: url(/src/assets/images/home-image.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     .home__btn-container {
       display: flex;

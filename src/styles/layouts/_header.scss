@@ -7,23 +7,28 @@ header {
   .header__container {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 2rem 4rem;
 
     .header__logo {
-      width: 300px;
-      height: 200px;
-      background-image: url("/src/assets/images/logo-main.svg");
+      // remained width of header container
+      display: flex;
+      flex-grow: 1;
+
+      .icon {
+        font-size: 10rem;
+      }
     }
 
     .header__nav {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
 
       .header__nav-container {
         display: flex;
 
         .header__nav-text {
-          margin-right: 1rem;
+          margin-right: 1.2rem;
         }
 
         .header__nav-icon {
@@ -33,6 +38,10 @@ header {
         .header__nav-icon:not(:last-child) {
           margin-right: 8px;
         }
+      }
+      .header__nav-desc {
+        font-size: 3rem;
+        font-weight: $font-semi;
       }
     }
   }
